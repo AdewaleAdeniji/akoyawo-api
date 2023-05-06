@@ -1,22 +1,18 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const budgetSchema = new Schema({
     userID: {
         type: String,
         default: ''
     },
-    userType: {
-        type: String,
-        default: 'user',
-    },
-    status: {
+    title: String,
+    budgetID: String,
+    budgetRef: String,
+    public: {
         type: Boolean,
-        default: true,
+        default: false,
     },
-    name: String,
-    email: String,
-    password: String,
     createdAt: {
         type: Date,
         default: Date.now,
@@ -26,5 +22,4 @@ const userSchema = new Schema({
         default: Date.now,
     },
 })
-exports.user = userSchema;
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("budgets", budgetSchema);
